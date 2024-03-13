@@ -1,0 +1,7 @@
+setup.py
+jeo.egg-info/PKG-INFO
+jeo.egg-info/SOURCES.txt
+jeo.egg-info/dependency_links.txt
+jeo.egg-info/not-zip-safe
+jeo.egg-info/requires.txt
+jeo.egg-info/top_level.txt

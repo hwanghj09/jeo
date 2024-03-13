@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: jeo
+Version: 0.0.1
+Summary: PYPI tutorial package creation written by jeo
+Home-page: https://github.com/hwanghj09/jeo
+Author: hwanghj09
+Author-email: hwanghj09@naver.com
+Keywords: jeo,hwanghj09,python datasets,python tutorial,pypi
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.6
