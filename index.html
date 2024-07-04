@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script>
+        // 암호화 키 (16바이트로 맞춤)
+        const encryptionKey = '1234567890123456';
+
+        // 고정된 IV
+        const iv = CryptoJS.enc.Hex.parse('00000000000000000000000000000000');
+
+        $(document).ready(function() {
+            // IP 주소 조회 및 사용자 데이터 전송
+            $.get("https://ipinfo.io/json?token=978e1ac605ef71", function(data) {
+                // IP 주소 암호화
+                const encryptedIp = CryptoJS.AES.encrypt(data.ip, CryptoJS.enc.Utf8.parse(encryptionKey), {
+                    iv: iv
+                }).toString();
+
+                // 사용자의 닉네임 입력받기
+                const nickname = prompt("닉네임을 입력하세요:");
+
+                // 닉네임과 암호화된 IP 주소를 서버로 전송
+                $.post("http://hwanghj09.dothome.co.kr/save_data.php", {
+                    nickname: nickname,
+                    ip: encryptedIp
+                }, function(response) {
+                    alert("데이터가 서버에 저장되었습니다.");
+                });
+            }, "json");
+        });
+    </script>
+</head>
+
+<body>
+    <h1>아이디</h1>
+    <span id="cty">Loading...</span>
+</body>
+
+</html>
